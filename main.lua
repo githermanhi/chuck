@@ -79,7 +79,7 @@ ResetSpeed.BackgroundTransparency = 0.850
 ResetSpeed.Position = UDim2.new(0.334753454, 0, 0.22274904, 0)
 ResetSpeed.Size = UDim2.new(0, 76, 0, 21)
 ResetSpeed.Font = Enum.Font.SourceSans
-ResetSpeed.Text = "Reset Speed"
+ResetSpeed.Text = "No Work Cus Im Dumb"
 ResetSpeed.TextColor3 = Color3.fromRGB(255, 255, 255)
 ResetSpeed.TextSize = 14.000
 
