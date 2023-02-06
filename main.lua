@@ -4,7 +4,10 @@ local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local TextLabel = Instance.new("TextLabel")
 local ImageLabel = Instance.new("ImageLabel")
-local TextButton = Instance.new("TextButton")
+local flyButton = Instance.new("TextButton")
+local speed = Instance.new("TextButton")
+local speed2 = Instance.new("TextButton")
+local ResetSpeed = Instance.new("TextButton")
 
 --Properties:
 
@@ -13,7 +16,7 @@ ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Frame.Parent = ScreenGui
 Frame.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
-Frame.Position = UDim2.new(0.0862422958, 0, 0.198254362, 0)
+Frame.Position = UDim2.new(0.0877950937, 0, 0.200748131, 0)
 Frame.Size = UDim2.new(0, 451, 0, 270)
 Frame.Style = Enum.FrameStyle.RobloxRound
 
@@ -29,25 +32,61 @@ TextLabel.TextSize = 14.000
 
 ImageLabel.Parent = Frame
 ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.BackgroundTransparency = 0.600
 ImageLabel.BorderColor3 = Color3.fromRGB(255, 255, 255)
-ImageLabel.Position = UDim2.new(-0.0201033689, 0, 0.0871481523, 0)
+ImageLabel.Position = UDim2.new(-0.0189169068, 0, 0.0743569285, 0)
 ImageLabel.Size = UDim2.new(0, 451, 0, 0)
 ImageLabel.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
 
-TextButton.Parent = Frame
-TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextButton.BackgroundTransparency = 0.850
-TextButton.Position = UDim2.new(0.017738359, 0, 0.141124815, 0)
-TextButton.Size = UDim2.new(0, 129, 0, 21)
-TextButton.Font = Enum.Font.SourceSans
-TextButton.Text = "Toggle Fly"
-TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextButton.TextSize = 14.000
+flyButton.Name = "flyButton"
+flyButton.Parent = Frame
+flyButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+flyButton.BackgroundTransparency = 0.850
+flyButton.Position = UDim2.new(0.017738359, 0, 0.133717403, 0)
+flyButton.Size = UDim2.new(0, 129, 0, 21)
+flyButton.Font = Enum.Font.SourceSans
+flyButton.Text = "Toggle Fly"
+flyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+flyButton.TextSize = 14.000
+
+speed.Name = "speed"
+speed.Parent = Frame
+speed.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+speed.BackgroundTransparency = 0.850
+speed.Position = UDim2.new(0.334712327, 0, 0.135786161, 0)
+speed.Size = UDim2.new(0, 36, 0, 21)
+speed.Font = Enum.Font.SourceSans
+speed.Text = "+"
+speed.TextColor3 = Color3.fromRGB(255, 255, 255)
+speed.TextSize = 29.000
+
+speed2.Name = "speed2"
+speed2.Parent = Frame
+speed2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+speed2.BackgroundTransparency = 0.850
+speed2.Position = UDim2.new(0.418684393, 0, 0.135566667, 0)
+speed2.Size = UDim2.new(0, 40, 0, 21)
+speed2.Font = Enum.Font.SourceSansBold
+speed2.Text = "-"
+speed2.TextColor3 = Color3.fromRGB(255, 255, 255)
+speed2.TextSize = 29.000
+speed2.TextWrapped = true
+
+ResetSpeed.Name = "Reset Speed"
+ResetSpeed.Parent = Frame
+ResetSpeed.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ResetSpeed.BackgroundTransparency = 0.850
+ResetSpeed.Position = UDim2.new(0.334753454, 0, 0.22274904, 0)
+ResetSpeed.Size = UDim2.new(0, 76, 0, 21)
+ResetSpeed.Font = Enum.Font.SourceSans
+ResetSpeed.Text = "Reset Speed"
+ResetSpeed.TextColor3 = Color3.fromRGB(255, 255, 255)
+ResetSpeed.TextSize = 14.000
 
 -- Scripts:
 
-local function ZFAO_fake_script() -- TextButton.LocalScript 
-	local script = Instance.new('LocalScript', TextButton)
+local function HVLA_fake_script() -- flyButton.LocalScript 
+	local script = Instance.new('LocalScript', flyButton)
 
 	-- Press E to toggle
 	
@@ -137,8 +176,8 @@ local function ZFAO_fake_script() -- TextButton.LocalScript
 	end)
 	Fly()
 end
-coroutine.wrap(ZFAO_fake_script)()
-local function WQPVT_fake_script() -- Frame.LocalScript 
+coroutine.wrap(HVLA_fake_script)()
+local function CIPQG_fake_script() -- Frame.LocalScript 
 	local script = Instance.new('LocalScript', Frame)
 
 	local gui = script.Parent
@@ -159,8 +198,8 @@ local function WQPVT_fake_script() -- Frame.LocalScript
 	
 	
 end
-coroutine.wrap(WQPVT_fake_script)()
-local function VXQPO_fake_script() -- Frame.SmoothDrag 
+coroutine.wrap(CIPQG_fake_script)()
+local function BRDPQV_fake_script() -- Frame.SmoothDrag 
 	local script = Instance.new('LocalScript', Frame)
 
 	-- Investigated by TraderBey for any bugs. [Safe]
@@ -204,4 +243,46 @@ local function VXQPO_fake_script() -- Frame.SmoothDrag
 		end)
 	
 end
-coroutine.wrap(VXQPO_fake_script)()
+coroutine.wrap(BRDPQV_fake_script)()
+local function AXUB_fake_script() -- speed.LocalScript 
+	local script = Instance.new('LocalScript', speed)
+
+	local player = game.Players.LocalPlayer
+	local humanoid = player.Character.Humanoid
+	
+	local ws = 16
+	local button = script.Parent
+	
+	button.MouseButton1Click:Connect(function()
+		humanoid.WalkSpeed = ws + 1
+	end)
+end
+coroutine.wrap(AXUB_fake_script)()
+local function TXJOJPI_fake_script() -- speed2.LocalScript 
+	local script = Instance.new('LocalScript', speed2)
+
+	local player = game.Players.LocalPlayer
+	local humanoid = player.Character.Humanoid
+	
+	local ws = 16
+	local button = script.Parent
+	
+	button.MouseButton1Click:Connect(function()
+		humanoid.WalkSpeed = ws - 1
+	end)
+end
+coroutine.wrap(TXJOJPI_fake_script)()
+local function OKZJGZ_fake_script() -- ResetSpeed.LocalScript 
+	local script = Instance.new('LocalScript', ResetSpeed)
+
+	local player = game.Players.LocalPlayer
+	local humanoid = player.Character.Humanoid
+	
+	local ws = 16
+	local button = script.Parent
+	
+	button.MouseButton1Click:Connect(function()
+		humanoid.WalkSpeed = ws
+	end)
+end
+coroutine.wrap(OKZJGZ_fake_script)()
